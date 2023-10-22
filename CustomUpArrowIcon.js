@@ -1,14 +1,18 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {Image, StyleSheet, View} from 'react-native';
+import React from 'react';
+import {ImageSource} from './common/imageSource';
 
 const CustomUpArrowIcon = () => {
   return (
     <View>
-      <Image source={require('./assets/arrow-circle-up-icon-White.png')} style={{height: 34, width: 34, marginRight: 16}} />
+      <Image
+        source={ImageSource.ArrowIcon}
+        style={{height: 34, width: 34, marginRight: 16}}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default CustomUpArrowIcon
+export default CustomUpArrowIcon;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

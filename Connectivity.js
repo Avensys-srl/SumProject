@@ -7,13 +7,8 @@ import {
   SafeAreaView,
 } from 'react-native';
 import React from 'react';
-import TrippleBtn from './TrippleBtn';
 import ActivationButton from './ActivationButton';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 import {useNavigation} from '@react-navigation/native';
 
 const {height, width} = Dimensions.get('window');
@@ -96,7 +91,7 @@ const Connectivity = () => {
           justifyContent: 'flex-end',
           height: height * 0.2,
         }}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </SafeAreaView>
   );

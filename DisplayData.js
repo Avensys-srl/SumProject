@@ -9,10 +9,6 @@ import {
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const initialDisplayData = {
@@ -58,6 +54,7 @@ const DisplayData = () => {
     try {
       const dataToSave = JSON.stringify(data);
       await AsyncStorage.setItem('data', dataToSave);
+      await AsyncStorage.setItem('toggleState', 'true');
       console.log('Data saved to local storage:', dataToSave);
     } catch (error) {
       console.log('Error saving data to local storage:', error);
@@ -66,13 +63,11 @@ const DisplayData = () => {
 
   const retrieveExcelData = async () => {
     try {
-      const excelDataStringupdated = await AsyncStorage.getItem(
-        'updatedExcelData',
-      );
+      const excelDataStringupdated = await AsyncStorage.getItem('data');
       const updatedToggleState = await AsyncStorage.getItem('toggleState');
 
       if (updatedToggleState) {
-        setDisplayDataObj(JSON.parse(updatedToggleState));
+        setDisplayDataObj(JSON.parse(excelDataStringupdated));
       } else {
         console.log('Toggle state not found in local storage.');
       }
@@ -109,7 +104,7 @@ const DisplayData = () => {
         </ScrollView>
       </View>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

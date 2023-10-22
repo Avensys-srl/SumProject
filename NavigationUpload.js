@@ -19,6 +19,7 @@ import EditData from './EditData';
 import DownloadingReport from './DownloadingReport';
 import DownloadService from './DownloadService';
 import {PermissionsAndroid} from 'react-native';
+import {Colors} from './styles';
 
 const Stack = createStackNavigator();
 
@@ -78,7 +79,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Upload File',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerTitleStyle: {
@@ -94,7 +95,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'List of Projects',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerTitleStyle: {
@@ -111,7 +112,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Design Parameters',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerTitleStyle: {
@@ -127,7 +128,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Visibility Room Param',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerTitleStyle: {
@@ -144,7 +145,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Verification Parameters',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerTitleStyle: {
@@ -162,7 +163,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Connectivity',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerRight: () => <CustomUpArrowIcon />,
@@ -181,7 +182,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Verification Parameters',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerRight: () => <CustomUpArrowIcon />,
@@ -238,7 +239,7 @@ const NavigationUpload = () => {
           options={{
             headerTitle: 'Downloading Report',
             headerStyle: {
-              backgroundColor: '#4CAF50',
+              backgroundColor: Colors.LIGHT_GREEN,
             },
             headerLeft: () => <CustomHeaderBackButton />,
             headerRight: () => <CustomUpArrowIcon />,

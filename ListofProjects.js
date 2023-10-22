@@ -11,12 +11,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
-import SettingsScreen from './SettingsScreen';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 
 const {width} = Dimensions.get('window');
 
@@ -234,7 +229,7 @@ const ListofProjects = () => {
         </Modal>
       </View>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

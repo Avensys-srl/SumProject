@@ -7,16 +7,11 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  Alert,
 } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 
 const EditData = ({route}) => {
   const {selectedData} = route.params;
@@ -200,7 +195,7 @@ const EditData = ({route}) => {
           justifyContent: 'flex-end',
           height: '20%',
         }}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

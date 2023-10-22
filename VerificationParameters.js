@@ -1,9 +1,5 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 import {useNavigation} from '@react-navigation/native';
 import CustomBottomNavigation from './CustomBottomNavigation';
 
@@ -25,15 +21,15 @@ const VerificationParameters = () => {
             <Text style={styles.text}>supply and return verification</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.service}
-          onPress={() => navigation.navigate('DownloadService', {})}
-          >
+          <TouchableOpacity
+            style={styles.service}
+            onPress={() => navigation.navigate('DownloadService', {})}>
             <Text style={styles.text}>service</Text>
           </TouchableOpacity>
         </View>
       </View>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

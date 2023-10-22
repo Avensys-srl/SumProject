@@ -2,10 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
-  Button,
   Alert,
   PermissionsAndroid,
-  AsyncStorage,
   TouchableOpacity,
 } from 'react-native';
 import XLSX from 'xlsx';
@@ -14,10 +12,6 @@ import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import {useRoute} from '@react-navigation/native';
 import ActivationButton from './ActivationButton';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 
 const DownloadingReport = () => {
   const [excelData, setExcelData] = useState(null);
@@ -201,7 +195,7 @@ const DownloadingReport = () => {
 
   return (
     <View
-      style={{justifyContent: 'center', alignItems: 'center', height: '100%', }}>
+      style={{justifyContent: 'center', alignItems: 'center', height: '100%'}}>
       <View style={{height: '80%', justifyContent: 'space-evenly'}}>
         <View
           style={{
@@ -252,7 +246,7 @@ const DownloadingReport = () => {
           justifyContent: 'flex-end',
           height: '20%',
         }}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

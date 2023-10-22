@@ -1,14 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Button, StyleSheet, PermissionsAndroid} from 'react-native';
+import {View, Text, StyleSheet, PermissionsAndroid} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import XLSX from 'xlsx';
 import RNFS from 'react-native-fs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
+import {CustomStyles} from './styles';
 
 const UploadFile = () => {
   const [fileName, setFileName] = useState('');
@@ -49,10 +46,14 @@ const UploadFile = () => {
         const worksheet = workbook.Sheets[firstSheetName];
         const excelData = XLSX.utils.sheet_to_json(worksheet);
         const excelDataString = JSON.stringify(excelData);
-        await AsyncStorage.setItem('excelData', excelDataString);
-
-        setFileName(result[0].name);
-        console.log('Excel data:', excelData);
+        try {
+          await AsyncStorage.setItem('excelData', excelDataString);
+          console.log('Array salvato con successo!');
+          setFileName(result[0].name);
+          console.log('Excel data:', excelData);
+        } catch (error) {
+          console.error("Errore nel salvataggio dell'array: ", error);
+        }
       } else {
         console.log('Selected document URI is undefined.');
       }
@@ -65,14 +66,15 @@ const UploadFile = () => {
     <View style={{height: '100%'}}>
       <View>
         <Text style={styles.headingText}>Upload and Read Excel File</Text>
-        <Button title="Pick Excel File" onPress={pickDocument} />
-        <Text style={styles.fileNameDisplay}>
+        <Text onPress={pickDocument} style={CustomStyles.BlueButton}>
+          Pick Excel File
+        </Text>
+        <Text style={CustomStyles.BtnText}>
           {fileName && `Selected File: ${fileName}`}
         </Text>
-        <Text></Text>
       </View>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

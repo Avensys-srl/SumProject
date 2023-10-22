@@ -8,10 +8,6 @@ import {
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CheckBox from 'react-native-check-box';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
 import {useNavigation} from '@react-navigation/native';
 import CustomBottomNavigation from './CustomBottomNavigation';
 
@@ -29,6 +25,7 @@ const StartUpVerification = () => {
       const savedData = await AsyncStorage.getItem('data');
 
       if (savedData !== null) {
+        console.log('data get : ', savedData);
         setData(JSON.parse(savedData)); // Parse the saved data to an object
         // Initialize checkbox states
         const initialCheckboxStates = {};
@@ -41,6 +38,7 @@ const StartUpVerification = () => {
         console.log('Data not found in local storage');
       }
     } catch (error) {
+      console.log('error get : ', savedData);
       console.error('Error retrieving data from local storage:', error);
     }
   };
@@ -59,15 +57,21 @@ const StartUpVerification = () => {
           justifyContent: 'space-around',
           marginTop: '1%',
         }}>
-        <View style={styles.headerContainer}>
-          <Text style={{color: 'black'}}>Unit</Text>
-        </View>
-        <View>
-          <Text style={{fontSize: 24, color: 'black'}}>Room 2</Text>
-        </View>
-        <View style={styles.headerContainer}>
-          <Text style={{color: 'black'}}>Serial Number</Text>
-        </View>
+        {data && (
+          <>
+            <View style={styles.headerContainer}>
+              <Text style={{color: 'black'}}>{data['Unit']}</Text>
+            </View>
+            <View>
+              <Text style={{fontSize: 24, color: 'black'}}>
+                Room {data['Room']}
+              </Text>
+            </View>
+            <View style={styles.headerContainer}>
+              <Text style={{color: 'black'}}>99990025121</Text>
+            </View>
+          </>
+        )}
       </View>
       {/* Render keys and values from the filtered data object */}
       {data && (
@@ -171,7 +175,7 @@ const StartUpVerification = () => {
       </View>
 
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

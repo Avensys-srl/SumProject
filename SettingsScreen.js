@@ -10,10 +10,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomBottomNavigation from './CustomBottomNavigation';
-import HI from './assets/house-icon-original.png';
-import PI from './assets/sliders-icon-original.png';
-import II from './assets/info-icon-original.png';
-import SI from './assets/wrench-icon-original.png';
+import {ImageSource} from './common/imageSource';
 
 const SettingsScreen = () => {
   const [keys, setKeys] = useState([]);
@@ -90,7 +87,7 @@ const SettingsScreen = () => {
           JSON.stringify(updatedExcelData),
         );
         setExcelData(updatedExcelData);
-        console.log("updatedExcelData" + updatedExcelData);
+        console.log('updatedExcelData' + updatedExcelData);
       }
     } catch (error) {
       console.log('Error handling button press:', error);
@@ -123,10 +120,7 @@ const SettingsScreen = () => {
               onPress={() => handleButtonPress(key)}>
               <Text>{key}</Text>
               {!toggleState[key] ? (
-                <Image
-                  source={require('./assets/eye-slash-icon-red.png')}
-                  style={styles.image}
-                />
+                <Image source={ImageSource.RedEye} style={styles.image} />
               ) : null}
             </TouchableOpacity>
           ))}
@@ -135,7 +129,7 @@ const SettingsScreen = () => {
         <Text style={styles.messageText}>Upload an Excel File</Text>
       )}
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <CustomBottomNavigation HI={HI} PI={PI} II={II} SI={SI} OC={0} />
+        <CustomBottomNavigation />
       </View>
     </View>
   );

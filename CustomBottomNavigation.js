@@ -7,11 +7,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import HomeScreen from './HomeScreen';
+import {ImageSource} from './common/imageSource';
 
 const {width, height} = Dimensions.get('window');
 
-const CustomBottomNavigation = ({HI, PI, II, SI, OC}) => {
+const CustomBottomNavigation = ({
+  HI = ImageSource.HI,
+  PI = ImageSource.PI,
+  II = ImageSource.II,
+  SI = ImageSource.SI,
+  OC = 0,
+}) => {
   let OCColor;
   if (OC === 0) {
     OCColor = 'black';
